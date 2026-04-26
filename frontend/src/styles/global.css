@@ -1,0 +1,23 @@
+/* reset cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, Arial;
+  background-color: #f5f6fa;
+  color: #111;
+}
+:root {
+ 
+  --primary-color: #000000;
+  --secondary-color: #3b82f6;
+  --danger-color: #ef4444;
+
+  --text-color: #111;
+  --bg-color: #ffffff;
+
+  --border-radius: 8px;
+}
