@@ -11,13 +11,14 @@ body {
   color: #111;
 }
 :root {
- 
   --primary-color: #000000;
   --secondary-color: #3b82f6;
   --danger-color: #ef4444;
 
   --text-color: #111;
   --bg-color: #ffffff;
-
+  --hover-color: rgb(240, 240, 240);
   --border-radius: 8px;
+
+  --border: 1px solid rgb(238, 236, 236);
 }
