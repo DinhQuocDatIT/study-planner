@@ -46,11 +46,11 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required={true}
         />
-        <Button>Đăng nhập</Button>
+        <Button type="submit">Đăng nhập</Button>
         <div className={styles.divider}>
           <span>HOẶC</span>
         </div>
-        <Button variant="outline">
+        <Button variant="outline" type="button">
           <img src={Google} title="google" alt="Google logo" />
           Đăng nhập với google
         </Button>

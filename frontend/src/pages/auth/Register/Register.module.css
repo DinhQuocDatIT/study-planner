@@ -20,8 +20,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
+
 .header .logo svg {
   display: flex;
   justify-content: center;
@@ -30,14 +31,15 @@
   padding: 10px 9px;
   line-height: 24px;
   font-size: 23px;
-  color: var(--bg-color);
-  background-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+  border: var(--border);
 }
 /* form login */
 
 .form {
   font-size: 16px;
-  max-width: 400px;
+  max-width: 500px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -57,6 +59,8 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 .headerform span {
   font-size: 16px;
@@ -74,12 +78,25 @@
   border: var(--border);
   border-radius: 8px;
 }
+.form .row {
+  display: flex;
+  gap: 10px;
+}
+.form .row div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form .error {
+  height: 18px;
+  color: red;
+}
 .divider {
   display: flex;
   align-items: center;
   text-align: center;
   color: #999;
-  margin: 10px 0;
+  margin: 4px 0;
 }
 
 .divider::before,
@@ -114,5 +131,9 @@ img {
   .form {
     margin: 0px 10px;
     max-width: 100%;
+  }
+  .form .row {
+    display: flex;
+    flex-direction: column;
   }
 }
