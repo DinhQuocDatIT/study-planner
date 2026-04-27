@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: 13px;
+  gap: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  color: rgb(111, 111, 111);
+  text-decoration: none;
+}
+.wrapper svg {
+  font-size: 16px;
+}
+.wrapper.active {
+  color: black;
+  background-color: var(--hover-color);
+}
+.wrapper.active.isdashboard {
+  color: white;
+  background-color: var(--primary-color);
+}
+.wrapper:hover {
+  background-color: var(--hover-color);
+}

@@ -9,7 +9,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  width: 300px;
+  width: 260px;
   height: 100vh;
   border-right: var(--border);
   transition: transform 0.3s ease;
@@ -23,7 +23,7 @@
 }
 .maincontent {
   flex: 1;
-  margin-left: 300px;
+  margin-left: 260px;
   transition: margin-left 0.3s ease;
 }
 
