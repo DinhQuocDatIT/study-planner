@@ -35,3 +35,9 @@
   height: 64px;
   border-bottom: var(--border);
 }
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .header {
+    height: auto;
+  }
+}
