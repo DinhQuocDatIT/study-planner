@@ -17,8 +17,7 @@ function MainLayout() {
       </div>
       <div className={`${styles.maincontent} ${isOpen ? "" : styles.full}`}>
         <div className={styles.header}>
-          <button onClick={toggleSidebar}>X</button>
-          <Header />
+          <Header isOpenSidebar ={isOpen} toggleSidebar ={toggleSidebar} />
         </div>
         <Outlet />
       </div>
