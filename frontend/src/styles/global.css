@@ -14,11 +14,13 @@ body {
   --primary-color: #000000;
   --secondary-color: #3b82f6;
   --danger-color: #ef4444;
-
+  --secondary-text-color: rgb(91, 91, 91);
   --text-color: #111;
   --bg-color: #ffffff;
-  --hover-color: rgb(240, 240, 240);
+  --hover-color: rgb(245, 245, 245);
   --border-radius: 8px;
 
   --border: 1px solid rgb(238, 236, 236);
+
+  --spacing-m: 24px;
 }

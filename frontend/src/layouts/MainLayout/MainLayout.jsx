@@ -16,10 +16,12 @@ function MainLayout() {
         <Sidebar />
       </div>
       <div className={`${styles.maincontent} ${isOpen ? "" : styles.full}`}>
-        <div className={styles.header}>
-          <Header isOpenSidebar ={isOpen} toggleSidebar ={toggleSidebar} />
+        <div className={`${styles.header} ${!isOpen ? styles.headerFull : ""}`}>
+          <Header isOpenSidebar={isOpen} toggleSidebar={toggleSidebar} />
         </div>
-        <Outlet />
+        <div className={styles.content}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

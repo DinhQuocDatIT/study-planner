@@ -41,7 +41,7 @@
 }
 .right svg {
   font-size: 18px;
-  color: rgb(91, 91, 91);
+  color: var(--secondary-text-color);
   cursor: pointer;
 }
 .right svg:hover {

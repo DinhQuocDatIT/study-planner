@@ -5,14 +5,14 @@
   gap: 10px;
   border-radius: 12px;
   transition: all 0.3s ease;
-  color: rgb(111, 111, 111);
+  color: var(--secondary-text-color);
   text-decoration: none;
 }
 .wrapper svg {
   font-size: 16px;
 }
 .wrapper.active {
-  color: black;
+  color: var(--secondary-color);
   background-color: var(--hover-color);
 }
 .wrapper.active.isdashboard {
