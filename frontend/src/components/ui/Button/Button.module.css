@@ -9,6 +9,8 @@
   outline: none;
   border: none;
   transition: all 0.3s ease;
+  width: fit-content;
+  text-decoration: none;
 }
 .wrapper:hover {
   background-color: var(--hover-color);
@@ -24,4 +26,12 @@
   border: var(--border);
   color: var(--primary-color);
   background-color: var(--bg-color);
+}
+.wrapper.primary svg {
+  font-size: 13px;
+  color: white;
+}
+.wrapper.outline svg {
+  font-size: 13px;
+  color: var(--primary-color);
 }

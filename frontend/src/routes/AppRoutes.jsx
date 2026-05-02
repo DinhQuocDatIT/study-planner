@@ -5,6 +5,7 @@ import MainLayout from "../layouts/MainLayout/MainLayout";
 import Schedule from "../pages/Schedule/Schedule";
 import Tasks from "../pages/Tasks/Tasks";
 import Subjects from "../pages/Subjects/Subjects";
+import AddSubject from "../pages/Subjects/AddSubject/AddSubject";
 
 function AppRoutes() {
   return (
@@ -13,7 +14,9 @@ function AppRoutes() {
         <Route index element={<Dashboard />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/tasks" element={<Tasks />} />
+
         <Route path="/subjects" element={<Subjects />} />
+        <Route path="/subjects/add" element={<AddSubject />} />
       </Route>
 
       <Route path="/login" element={<Login />} />

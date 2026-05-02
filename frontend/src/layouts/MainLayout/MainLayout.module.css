@@ -59,6 +59,9 @@
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
   .header {
-    height: auto;
+    height: 128px;
+  }
+  .content {
+    margin-top: 128px;
   }
 }
