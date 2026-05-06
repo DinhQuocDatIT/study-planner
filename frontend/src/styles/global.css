@@ -20,7 +20,7 @@ body {
   --hover-color: rgb(245, 245, 245);
   --border-radius: 8px;
 
-  --border: 1px solid rgb(238, 236, 236);
+  --border: 1px solid #e5e7eb;
 
   --spacing-m: 24px;
 }
