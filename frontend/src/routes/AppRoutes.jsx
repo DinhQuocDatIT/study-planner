@@ -6,6 +6,7 @@ import Schedule from "../pages/Schedule/Schedule";
 import Tasks from "../pages/Tasks/Tasks";
 import Subjects from "../pages/Subjects/Subjects";
 import AddSubject from "../pages/Subjects/AddSubject/AddSubject";
+import AddTask from "../pages/Tasks/AddTask/AddTask";
 
 function AppRoutes() {
   return (
@@ -13,8 +14,9 @@ function AppRoutes() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="/schedule" element={<Schedule />} />
-        <Route path="/tasks" element={<Tasks />} />
 
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/tasks/add" element={<AddTask />} />
         <Route path="/subjects" element={<Subjects />} />
         <Route path="/subjects/add" element={<AddSubject />} />
       </Route>

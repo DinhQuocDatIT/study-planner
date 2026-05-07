@@ -288,7 +288,7 @@ function Tasks() {
           <Button variant="ghost" leftIcon={faPrint} onClick={exportPDF}>
             Xuất báo cáo
           </Button>
-          <Button icon={faPlus} variant="primary">
+          <Button icon={faPlus} variant="primary" to={"/tasks/add"}>
             Thêm nhiệm vụ
           </Button>
         </div>
