@@ -1,0 +1,59 @@
+.wrapper {
+  width: fit-content;
+  position: relative;
+}
+.wrapper button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+  background-color: var(--bg-color);
+  border: var(--border);
+}
+.wrapper button:hover {
+  background-color: var(--hover-color);
+}
+
+.menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background-color: var(--bg-color);
+  border: var(--border);
+  padding: 12px 8px;
+  list-style: none;
+  z-index: 10;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.menu li {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--secondary-text-color);
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu li:hover {
+  background-color: var(--hover-color);
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  border: var(--border);
+}

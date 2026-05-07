@@ -1,0 +1,134 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-m);
+  align-items: center;
+}
+.header .actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-m) 0px;
+  border-bottom: var(--border);
+}
+.leftFilter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.leftFilter span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  color: var(--secondary-text-color);
+
+  margin-right: 10px;
+}
+.rightFilter {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.rightFilter span {
+  color: var(--secondary-text-color);
+  font-weight: 500;
+}
+
+.rightFilter button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rightFilter button svg {
+  font-size: 11px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.completed,
+.upcoming,
+.currently {
+  margin-bottom: var(--spacing-m);
+}
+.completed .completedHeader,
+.upcoming .upcomingHeader,
+.currently .currentlyHeader {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.completed .completedHeader .title,
+.upcoming .upcomingHeader .title,
+.currently .currentlyHeader .title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.completed .completedHeader .count,
+.upcoming .upcomingHeader .count,
+.currently .currentlyHeader .count {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 50%;
+  color: var(--secondary-text-color);
+}
+.currently .currentlyHeader svg {
+  padding: 8px;
+  color: rgb(0, 114, 244);
+  background-color: rgba(0, 114, 244, 0.05);
+  border-radius: 8px;
+  width: 16px;
+  height: 16px;
+}
+.upcoming .upcomingHeader svg {
+  padding: 8px;
+
+  color: rgb(199, 99, 0);
+  background-color: rgba(199, 99, 0, 0.05);
+  border-radius: 8px;
+  width: 16px;
+  height: 16px;
+}
+.completed .completedHeader svg {
+  padding: 8px;
+
+  color: rgb(0, 199, 113);
+  background-color: rgba(0, 199, 113, 0.05);
+  border-radius: 8px;
+  width: 16px;
+  height: 16px;
+}
+.taskList {
+  margin-top: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

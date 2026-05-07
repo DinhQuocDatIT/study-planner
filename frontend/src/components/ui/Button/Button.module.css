@@ -1,15 +1,15 @@
 .wrapper {
-  justify-content: center;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px; /* Bo góc lớn */
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  outline: none;
-  border: none;
   transition: all 0.3s ease;
-  width: fit-content;
+  border: 1px solid transparent;
   text-decoration: none;
 }
 .wrapper:hover {
@@ -34,4 +34,22 @@
 .wrapper.outline svg {
   font-size: 13px;
   color: var(--primary-color);
+}
+
+/* ghost */
+
+.ghost {
+  background-color: #f9fafb;
+  color: #444;
+  border: var(--border);
+}
+
+.ghost:hover {
+  background-color: #f1f3f4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 13px;
+  color: #5f6368;
 }

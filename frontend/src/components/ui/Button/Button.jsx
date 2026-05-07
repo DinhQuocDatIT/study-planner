@@ -7,36 +7,43 @@ function Button({
   type = "button",
   icon = null,
   to = null,
+  rightIcon = null,
+  leftIcon = null,
   children,
   onClick,
 }) {
-  let classes = styles.primary;
-  if (variant === "outline") {
-    classes = styles.outline;
-  }
+  const variantClass = styles[variant] || styles.primary;
+
+  const content = (
+    <>
+      {icon && <FontAwesomeIcon icon={icon} className={styles.icon} />}
+      {leftIcon && <FontAwesomeIcon icon={leftIcon} className={styles.icon} />}
+      <span>{children}</span>
+      {rightIcon && (
+        <FontAwesomeIcon icon={rightIcon} className={styles.icon} />
+      )}
+    </>
+  );
+
   if (to !== null) {
     return (
       <NavLink
-        className={`${styles.wrapper} ${classes}`}
+        className={`${styles.wrapper} ${variantClass}`}
         onClick={onClick}
-        type={type}
         to={to}
       >
-        {icon && <FontAwesomeIcon icon={icon} />}
-
-        {children}
+        {content}
       </NavLink>
     );
   }
+
   return (
     <button
-      className={`${styles.wrapper} ${classes}`}
+      className={`${styles.wrapper} ${variantClass}`}
       onClick={onClick}
       type={type}
     >
-      {icon && <FontAwesomeIcon icon={icon} />}
-
-      {children}
+      {content}
     </button>
   );
 }
