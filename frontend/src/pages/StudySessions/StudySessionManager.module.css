@@ -1,0 +1,154 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-m);
+  align-items: center;
+}
+.header .actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.statsGird {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-m);
+}
+.cardstat {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  gap: var(--spacing-m);
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.cardstat .cardstatheader {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  align-items: center;
+}
+.cardstat .cardstatheader svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background-color: var(--hover-color);
+  padding: 8px;
+  border-radius: 50%;
+}
+.cardstat .cardstatheader .cardstatsubtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 10px;
+  border-radius: 10px;
+  color: var(--secondary-text-color);
+  font-size: 12px;
+  font-weight: 500;
+  height: 12px;
+}
+.cardstat .cardstatheader .cardstatsubtitle.urgent {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+.cardstat .cardstatbody {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  gap: 10px;
+}
+.cardstat .cardstatbody span {
+  color: var(--secondary-text-color);
+  font-size: 15px;
+  font-weight: 600;
+}
+.cardstat .cardstatbody .cardstatvalue {
+  color: var(--primary-color);
+  font-size: 30px;
+  font-weight: 700;
+}
+.sessionList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+.sessionList .sessionListHeader {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.sessionList .sessionListHeader span {
+  font-size: 20px;
+  font-weight: 600;
+}
+.sessionList .sessionListContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sessionList .sessionListContent .session {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  align-items: center;
+  padding: var(--spacing-m);
+  border: var(--border);
+  border-radius: 8px;
+}
+.session .subjectName {
+  display: flex;
+
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  gap: 8px;
+}
+.session .subjectName .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.session .startTime {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary-text-color);
+}
+.session .duration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.session .status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+@media (max-width: 600px) {
+  .statsGird {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .sessionList .sessionListContent .session {
+    padding: 10px;
+    gap: 6px;
+  }
+}

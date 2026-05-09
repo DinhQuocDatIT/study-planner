@@ -1,0 +1,153 @@
+.wrapper {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  margin: auto;
+}
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+.header a svg {
+  font-size: 10px;
+}
+.header h2 {
+  margin-top: 10px;
+}
+.header p {
+  color: var(--secondary-text-color);
+  font-size: 13px;
+  font-weight: 500;
+}
+.wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: var(--spacing-m);
+  border-radius: 8px;
+}
+.wrapper form .groupInput {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wrapper form .groupInput label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+.wrapper form .groupInput select {
+  padding: 10px;
+  outline: none;
+  border: var(--border);
+  border-radius: 8px;
+}
+.wrapper form .groupInput .durations {
+  display: flex;
+  gap: 10px;
+}
+.wrapper form .groupInput .durations .duration {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: var(--border);
+  border-radius: 5px;
+  background-color: #f9fafb;
+  padding: 5px 10px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.groupInput .durations .duration .durationValue {
+  font-size: 15px;
+  font-weight: 500;
+}
+.groupInput .durations .duration .durationLabel {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.wrapper form .groupInput .durations .duration.active {
+  background-color: rgb(245, 249, 255);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+.wrapper form .settingItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.wrapper form .settingItem .settingLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.wrapper form .switch {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  display: inline-block;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #e5e7eb;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.slider::before {
+  content: "";
+
+  position: absolute;
+  width: 16px;
+  height: 16px;
+
+  left: 3px;
+  top: 3px;
+
+  background: white;
+  border-radius: 50%;
+
+  transition: 0.3s;
+}
+.switch input:checked + .slider {
+  background: #3b82f6;
+}
+.switch input:checked + .slider::before {
+  transform: translateX(18px);
+}
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .wrapper form {
+   
+    padding: 10px;
+    
+  }
+}

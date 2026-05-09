@@ -3,6 +3,7 @@ import {
   faCalendar,
   faBookOpen,
   faGamepad,
+  faHourglassHalf,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const IDNAVITEMS = {
@@ -10,6 +11,7 @@ export const IDNAVITEMS = {
   SUBJECTS: "subjects",
   TASKS: "tasks",
   SCHEDULE: "schedule",
+  STUDYSESSIONS: "studySessions",
 };
 export const navItems = [
   {
@@ -35,5 +37,11 @@ export const navItems = [
     label: "Lịch trình",
     path: "/schedule",
     icon: faCalendar,
+  },
+  {
+    id: IDNAVITEMS.STUDYSESSIONS,
+    label: "Phiên học",
+    path: "/study_sessions",
+    icon: faHourglassHalf,
   },
 ];

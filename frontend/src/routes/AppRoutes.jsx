@@ -7,6 +7,8 @@ import Tasks from "../pages/Tasks/Tasks";
 import Subjects from "../pages/Subjects/Subjects";
 import AddSubject from "../pages/Subjects/AddSubject/AddSubject";
 import AddTask from "../pages/Tasks/AddTask/AddTask";
+import StudySessionManager from "../pages/StudySessions/StudySessionManager";
+import AddSession from "../pages/StudySessions/AddSession";
 
 function AppRoutes() {
   return (
@@ -17,8 +19,12 @@ function AppRoutes() {
 
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/tasks/add" element={<AddTask />} />
+
         <Route path="/subjects" element={<Subjects />} />
         <Route path="/subjects/add" element={<AddSubject />} />
+
+        <Route path="/study_sessions" element={<StudySessionManager />} />
+        <Route path="/study_sessions/add" element={<AddSession />} />
       </Route>
 
       <Route path="/login" element={<Login />} />
