@@ -1,0 +1,154 @@
+.wrapper {
+  width: fit-content;
+  display: flex;
+
+  flex-direction: column;
+  gap: var(--spacing-m);
+  margin: auto;
+}
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+.header a svg {
+  font-size: 10px;
+}
+.header h2 {
+  margin-top: 10px;
+}
+.header p {
+  color: var(--secondary-text-color);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 6px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--spacing-m);
+}
+.content form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+.content form .titleInput {
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  border-bottom: var(--border);
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+.content form .titleInput::placeholder {
+  color: rgb(179, 179, 179);
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.formGrid .formGroup {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.formGrid .formGroup label {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+.formGrid .formGroup input {
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.formGrid .formGroup select {
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.formGrid .formGroup select option {
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.formGrid .formGroup .priority {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.formGrid .formGroup .priority button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: azure;
+  cursor: pointer;
+}
+
+form .description {
+  display: flex;
+
+  flex-direction: column;
+  gap: 10px;
+}
+form .description span {
+  display: flex;
+
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+  gap: 6px;
+}
+form .description textarea {
+  min-height: 200px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  border-bottom: var(--border);
+  font-family: inherit;
+}
+.actionTask {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
+}
+@media (max-width: 992px) {
+ .formGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+}
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+ 
+}
