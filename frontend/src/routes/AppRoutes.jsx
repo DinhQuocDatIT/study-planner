@@ -8,7 +8,8 @@ import Subjects from "../pages/Subjects/Subjects";
 import AddSubject from "../pages/Subjects/AddSubject/AddSubject";
 import AddTask from "../pages/Tasks/AddTask/AddTask";
 import StudySessionManager from "../pages/StudySessions/StudySessionManager";
-import AddSession from "../pages/StudySessions/AddSession";
+import AddSession from "../pages/StudySessions/AddSession/AddSession";
+import StudySession from "../pages/StudySessions/StudySession/StudySession";
 
 function AppRoutes() {
   return (
@@ -25,6 +26,10 @@ function AppRoutes() {
 
         <Route path="/study_sessions" element={<StudySessionManager />} />
         <Route path="/study_sessions/add" element={<AddSession />} />
+        <Route
+          path="/study_sessions/add/study-session"
+          element={<StudySession />}
+        />
       </Route>
 
       <Route path="/login" element={<Login />} />

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import styles from "./AddSession.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,7 +6,7 @@ import {
   faCaretRight,
   faVolume,
 } from "@fortawesome/free-solid-svg-icons";
-import Button from "../../components/ui/Button/Button";
+import Button from "../../../components/ui/Button/Button";
 import { useState } from "react";
 const subjects = [
   {
@@ -97,12 +97,33 @@ const durations = [
 ];
 function AddSession() {
   const [idSubject, setIdSubject] = useState(subjects?.[0].id);
-  const [duration, setDuration] = useState(durations?.[0].key);
+  const [duration, setDuration] = useState(durations?.[0].duration);
   const [soundEnabled, setSoundEnabled] = useState(true);
+
+  const navigate = useNavigate();
+  const selectedSubject = subjects.find((s) => s.id === idSubject);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(idSubject);
-    console.log(duration);
+
+    const now = new Date().toISOString();
+
+    navigate("/study_sessions/add/study-session", {
+      state: {
+        id: crypto.randomUUID(),
+
+        subject: selectedSubject,
+
+        duration: duration * 60,
+
+        elapsed: 0,
+
+        startTime: now,
+
+        status: "running",
+
+        soundEnabled,
+      },
+    });
   };
 
   return (
@@ -121,7 +142,7 @@ function AddSession() {
           <select
             required
             value={idSubject}
-            onChange={(e) => setIdSubject(e.target.value)}
+            onChange={(e) => setIdSubject(Number(e.target.value))}
           >
             {subjects.map((item) => {
               return (
@@ -138,9 +159,10 @@ function AddSession() {
             {durations.map((item) => {
               return (
                 <button
-                  className={`${styles.duration} ${item.key == duration ? styles.active : ""}`}
+                  type="button"
+                  className={`${styles.duration} ${item.duration === duration ? styles.active : ""}`}
                   key={item.key}
-                  onClick={() => setDuration(item.key)}
+                  onClick={() => setDuration(item.duration)}
                 >
                   <span className={styles.durationValue}>{item.duration}</span>
                   <span className={styles.durationLabel}>{item.label}</span>

@@ -45,12 +45,11 @@ const sessions = [
       color: "#8b5cf6",
     },
     startTime: "2026-05-05T09:00:00",
-    duration: 25,
+    duration: 25 * 60,
+    elapsed: 25 * 60,
     status: "completed",
-    elapsedBeforePause: 25,
-    lastStartTime: null,
-    endTime: "2026-05-05T09:25:00",
   },
+
   {
     id: 2,
     subject: {
@@ -59,12 +58,11 @@ const sessions = [
       color: "#ef4444",
     },
     startTime: "2026-05-05T10:00:00",
-    duration: 30,
+    duration: 30 * 60,
+    elapsed: 30 * 60,
     status: "completed",
-    elapsedBeforePause: 30,
-    lastStartTime: null,
-    endTime: "2026-05-05T10:30:00",
   },
+
   {
     id: 3,
     subject: {
@@ -73,12 +71,11 @@ const sessions = [
       color: "#3b82f6",
     },
     startTime: "2026-05-06T14:15:00",
-    duration: 25,
+    duration: 25 * 60,
+    elapsed: 10 * 60,
     status: "paused",
-    elapsedBeforePause: 10,
-    lastStartTime: null,
-    endTime: null,
   },
+
   {
     id: 4,
     subject: {
@@ -87,12 +84,11 @@ const sessions = [
       color: "#f97316",
     },
     startTime: "2026-05-06T20:00:00",
-    duration: 20,
+    duration: 20 * 60,
+    elapsed: 0,
     status: "cancelled",
-    elapsedBeforePause: 0,
-    lastStartTime: null,
-    endTime: null,
   },
+
   {
     id: 5,
     subject: {
@@ -101,12 +97,11 @@ const sessions = [
       color: "#06b6d4",
     },
     startTime: "2026-05-07T08:30:00",
-    duration: 30,
+    duration: 30 * 60,
+    elapsed: 30 * 60,
     status: "completed",
-    elapsedBeforePause: 30,
-    lastStartTime: null,
-    endTime: "2026-05-07T09:00:00",
   },
+
   {
     id: 6,
     subject: {
@@ -115,12 +110,11 @@ const sessions = [
       color: "#8b5cf6",
     },
     startTime: "2026-05-07T19:00:00",
-    duration: 45,
+    duration: 45 * 60,
+    elapsed: 12 * 60,
     status: "running",
-    elapsedBeforePause: 0,
-    lastStartTime: "2026-05-07T19:00:00",
-    endTime: null,
   },
+
   {
     id: 7,
     subject: {
@@ -129,12 +123,11 @@ const sessions = [
       color: "#3b82f6",
     },
     startTime: "2026-05-08T07:30:00",
-    duration: 30,
+    duration: 30 * 60,
+    elapsed: 30 * 60,
     status: "completed",
-    elapsedBeforePause: 30,
-    lastStartTime: null,
-    endTime: "2026-05-08T08:00:00",
   },
+
   {
     id: 8,
     subject: {
@@ -143,12 +136,11 @@ const sessions = [
       color: "#ef4444",
     },
     startTime: "2026-05-08T13:00:00",
-    duration: 10,
+    duration: 10 * 60,
+    elapsed: 5 * 60,
     status: "paused",
-    elapsedBeforePause: 5,
-    lastStartTime: null,
-    endTime: null,
   },
+
   {
     id: 9,
     subject: {
@@ -157,12 +149,11 @@ const sessions = [
       color: "#f97316",
     },
     startTime: "2026-05-09T15:00:00",
-    duration: 25,
+    duration: 25 * 60,
+    elapsed: 8 * 60,
     status: "running",
-    elapsedBeforePause: 0,
-    lastStartTime: "2026-05-09T15:00:00",
-    endTime: null,
   },
+
   {
     id: 10,
     subject: {
@@ -171,11 +162,9 @@ const sessions = [
       color: "#06b6d4",
     },
     startTime: "2026-05-09T21:00:00",
-    duration: 5,
+    duration: 5 * 60,
+    elapsed: 0,
     status: "cancelled",
-    elapsedBeforePause: 0,
-    lastStartTime: null,
-    endTime: null,
   },
 ];
 function StudySessionManager() {
@@ -240,7 +229,7 @@ function StudySessionManager() {
                   {item.subject.name}
                 </span>
                 <span className={styles.startTime}>{item.startTime}</span>
-                <span className={styles.duration}>{item.duration}</span>
+                <span className={styles.duration}>{item.duration / 60}</span>
                 <span
                   className={styles.status}
                   style={{
