@@ -1,4 +1,54 @@
+import { useState } from "react";
+import styles from "./Schedule.module.css";
+import Day from "./Day/Day";
+import Week from "./Week/Week";
+import Month from "./Month/Month";
+
+const timeUnitOptions = [
+  { value: "day", label: "Ngày" },
+  { value: "week", label: "Tuần" },
+  { value: "month", label: "Tháng" },
+];
 function Schedule() {
-  return <>Schedule</>;
+  const [active, setActive] = useState(timeUnitOptions?.[0]);
+
+  const options = {
+    day: <Day />,
+    week: <Week />,
+    month: <Month />,
+  };
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
+        <div className={styles.header}>
+          <div className={styles.title}>
+            <h2>Môn học học thuật</h2>
+            <p className={styles.subtitle}>
+              Quản lý chương trình giảng dạy và theo dõi tiến độ của bạn qua các
+              lĩnh vực trọng tâm trong học kỳ hiện tại.
+            </p>
+          </div>
+          <div className={styles.actions}>
+            <div>
+              {timeUnitOptions.map((item) => {
+                return (
+                  <button
+                    className={`${active.value == item.value ? styles.active : ""}`}
+                    type="button"
+                    key={item.value}
+                    onClick={() => setActive(item)}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.content}>{options[active.value]}</div>
+    </div>
+  );
 }
 export default Schedule;
