@@ -64,7 +64,7 @@
   border: var(--border);
   border-radius: 8px;
   color: var(--secondary-text-color);
-  background-color: #f9fafb;
+  background-color: var(--surface-light);
   margin-top: 10px;
 }
 .subject .infor textarea {
@@ -74,7 +74,7 @@
   padding: 14px 16px;
   border-radius: 10px;
   border: var(--border);
-  background-color: #f9fafb;
+  background-color: var(--surface-light);
   font-size: 14px;
   outline: none;
   resize: none;
@@ -157,7 +157,7 @@
 }
 .schedulelist .schedule {
   border: var(--border);
-  background-color: #f9fafb;
+  background-color: var(--surface-light);
   display: flex;
   gap: 10px;
   padding: 15px;

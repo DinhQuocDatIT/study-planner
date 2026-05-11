@@ -71,7 +71,7 @@
   justify-content: center;
   border: var(--border);
   border-radius: 5px;
-  background-color: #f9fafb;
+  background-color: var(--surface-light);
   padding: 5px 10px;
   white-space: nowrap;
   cursor: pointer;
