@@ -8,6 +8,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import TaskItem from "../../../components/Tasks/TaskItem/TaskItem";
 const tasks = [
   {
     id: 1,
@@ -177,10 +178,10 @@ function Month() {
   const weekDayOfLast = dayObjOfLast.day();
 
   const handlePrev = () => {
-    setDayObj(dayObj.subtract(1, "month"));
+    setDayObj((prev) => prev.subtract(1, "month"));
   };
   const handleNext = () => {
-    setDayObj(dayObj.add(1, "month"));
+    setDayObj((prev) => prev.add(1, "month"));
   };
 
   const getTasksByDate = (date) => {
@@ -265,22 +266,7 @@ function Month() {
           <span className={styles.todayHighlighTitle}>Tiêu điểm: hôm nay</span>
           <div className={styles.taskListCard}>
             {taskListOfDay.map((item) => {
-              return (
-                <div className={styles.taskCard}>
-                  <div
-                    className={styles.taskCardDot}
-                    style={{
-                      backgroundColor: item.subject.color,
-                    }}
-                  ></div>
-                  <div className={styles.taskCardContent}>
-                    <span className={styles.taskCardName}>{item.taskName}</span>
-                    <span className={styles.taskCardDeadline}>
-                      {item.deadline}
-                    </span>
-                  </div>
-                </div>
-              );
+              return <TaskItem task={item} variant="list" />;
             })}
           </div>
         </div>
