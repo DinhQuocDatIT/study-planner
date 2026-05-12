@@ -5,6 +5,7 @@
   padding: 12px;
   border-radius: 8px;
   cursor: pointer;
+  background-color: var(--bg-color);
 }
 .wrapper input[type="checkbox"] {
   transform: scale(1.3);

@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  gap: var(--spacing-m);
+  width: 100%;
+  min-width: 0;
+  align-items: flex-start;
+}
+
+.calendarBoard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.calendarBoard .item {
+  display: flex;
+  width: 100%;
+  min-height: 80px;
+  gap: 15px;
+}
+.calendarBoard .item .hour {
+  display: flex;
+  justify-content: right;
+  width: 60px;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+.calendarBoard .item .taskList {
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  border-top: var(--border);
+}
+.calendarBoard .item .taskList.currently {
+  border: 1px solid #facc15;
+  background-color: #fffef4;
+}
+.calendarSidebar {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  align-items: center;
+}
+.currentlyDate {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.currentlyDateLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+
+.currentlyDateValue {
+  font-size: 17px;
+  font-weight: 500;
+}
+.calendarSidebar .dailyProgress {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.dailyProgress .dailyProgressTitle {
+  font-size: 15px;
+  font-weight: 500;
+}
+.dailyProgress .dailyProgressContent {
+  display: flex;
+  border: var(--border);
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 20px 10px;
+  gap: 5px;
+}
+.dailyProgress .dailyProgressContent .dailyProgressStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.dailyProgressContent .dailyProgressStats .dailyProgressPercent {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.dailyProgressContent .dailyProgressStats .dailyProgressTime {
+  color: var(--secondary-text-color);
+}
+.dailyProgressContent .dailyProgressBar {
+  width: 100%;
+  background-color: rgb(223, 223, 223);
+  height: 4px;
+  border-radius: 8px;
+}
+.dailyProgressContent .dailyProgressBar div {
+  height: 100%;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+}
+.calendarNavigation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+  }
+  .calendarBoard .item .hour {
+    width: 30px;
+  }
+  .calendarBoard {
+    width: 100%;
+  }
+  .calendarSidebar {
+    width: 100%;
+  }
+  .calendarSidebar .dailyProgress {
+    width: 100%;
+  }
+}
