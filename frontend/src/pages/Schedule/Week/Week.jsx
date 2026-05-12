@@ -216,14 +216,12 @@ function Week() {
               {progress}
               <span> %</span>
             </div>
-            <div className={styles.titleInfor}>
-              Đã hoàn thành trong tuần
-            </div>
+            <div className={styles.titleInfor}>Đã hoàn thành trong tuần</div>
           </div>
           <div
             className={styles.progress}
             style={{
-              background: `conic-gradient( #000000 ${progress}%, #dadada ${progress}%`,
+              background: `conic-gradient( #000000 ${progress}%, #dadada ${progress}%)`,
             }}
           >
             <div>
