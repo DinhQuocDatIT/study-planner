@@ -20,7 +20,12 @@ export function useTaskForm(subjects) {
       [field]: value,
     }));
   };
-
+  const setForm = (newData) => {
+    setFormData((prev) => ({
+      ...prev,
+      ...newData,
+    }));
+  };
   const resetForm = () => {
     setFormData(initialState);
   };
@@ -28,6 +33,7 @@ export function useTaskForm(subjects) {
   return {
     formData,
     handleChange,
+    setForm,
     resetForm,
   };
 }

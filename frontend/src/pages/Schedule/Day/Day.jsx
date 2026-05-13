@@ -9,6 +9,7 @@ import styles from "./Day.module.css";
 import { useMemo, useState } from "react";
 import dayjs from "dayjs";
 import TaskItem from "../../../components/Tasks/TaskItem/TaskItem";
+import { TASK_ITEM_VARIANTS } from "../../../constants/taskItemVariants";
 
 const tasks = [
   {
@@ -176,7 +177,9 @@ function Day() {
                 className={`${styles.taskList} ${isCurrently ? styles.currently : ""}`}
               >
                 {hour.map((task) => {
-                  return <TaskItem key={task.id} task={task} />;
+                  return (
+                    <TaskItem key={task.id} task={task} variant={TASK_ITEM_VARIANTS.DETAILED} />
+                  );
                 })}
               </div>
             </div>

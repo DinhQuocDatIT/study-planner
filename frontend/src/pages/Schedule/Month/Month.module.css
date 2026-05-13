@@ -150,19 +150,8 @@
     font-size: 11px;
   }
   .calendarBoard .gird .dayCell .taskList {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2px;
-  }
-  .calendarBoard .gird .dayCell .taskList .taskItem {
-    padding: 0;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-  .calendarBoard .gird .dayCell .taskList .taskItem p {
-    display: none;
-  }
-  .calendarSidebar {
-    width: 100%;
   }
 }

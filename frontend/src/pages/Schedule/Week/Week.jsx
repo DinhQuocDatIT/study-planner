@@ -10,6 +10,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import TaskItem from "../../../components/Tasks/TaskItem/TaskItem";
+import { TASK_ITEM_VARIANTS } from "../../../constants/taskItemVariants";
 const tasks = [
   {
     id: 1,
@@ -191,7 +192,13 @@ function Week() {
               >
                 {dayTasks.map((item) => {
                   const time = dayjs(item.deadline).format("HH:mm");
-                  return <TaskItem task={item} key={item.id} variant="list" />;
+                  return (
+                    <TaskItem
+                      task={item}
+                      key={item.id}
+                      variant={TASK_ITEM_VARIANTS.DEFAULT}
+                    />
+                  );
                 })}
               </div>
             );

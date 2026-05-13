@@ -9,6 +9,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import TaskItem from "../../../components/Tasks/TaskItem/TaskItem";
+import { TASK_ITEM_VARIANTS } from "../../../constants/taskItemVariants";
 const tasks = [
   {
     id: 1,
@@ -45,7 +46,7 @@ const tasks = [
     taskName: "Làm bài tập tích phân",
     priority: "high",
     status: "todo",
-    deadline: "2026-05-09T08:00:00",
+    deadline: "2026-05-12T08:00:00",
 
     subject: {
       id: 3,
@@ -60,12 +61,12 @@ const tasks = [
     taskName: "Luyện nghe Part 1",
     priority: "medium",
     status: "todo",
-    deadline: "2026-05-10T19:00:00",
+    deadline: "2026-05-12T10:03:00",
 
     subject: {
       id: 4,
       name: "Tiếng Anh chuyên ngành",
-      color: "#06b6d4",
+      color: "#00687b",
     },
 
     description: "Nghe 5 đoạn hội thoại về chủ đề Network",
@@ -75,12 +76,12 @@ const tasks = [
     taskName: "Vẽ sơ đồ ERD",
     priority: "medium",
     status: "todo",
-    deadline: "2026-05-11T10:30:00",
+    deadline: "2026-05-12T10:03:00",
 
     subject: {
       id: 5,
       name: "Cơ sở dữ liệu",
-      color: "#8b5cf6",
+      color: "#e8deff",
     },
 
     description: "Thiết kế bảng cho hệ thống quản lý thư viện",
@@ -90,7 +91,7 @@ const tasks = [
     taskName: "Ôn tập lý thuyết tích phân",
     priority: "low",
     status: "completed",
-    deadline: "2026-05-06T14:00:00",
+    deadline: "2026-05-12T14:00:00",
 
     subject: {
       id: 3,
@@ -120,7 +121,7 @@ const tasks = [
     taskName: "Fix bug API Login",
     priority: "high",
     status: "in-progress",
-    deadline: "2026-05-11T10:30:00",
+    deadline: "2026-05-12T16:30:00",
 
     subject: {
       id: 1,
@@ -224,17 +225,11 @@ function Month() {
                 <div className={styles.dayNumber}>{i + 1}</div>
                 <div className={styles.taskList}>
                   {tasksOfDay.map((task) => (
-                    <div
+                    <TaskItem
+                      task={task}
                       key={task.id}
-                      className={styles.taskItem}
-                      style={{
-                        color: task.subject.color,
-                        backgroundColor: `${task.subject.color}10`,
-                        border: `1px solid ${task.subject.color}`,
-                      }}
-                    >
-                      <p>{task.taskName}</p>
-                    </div>
+                      variant={TASK_ITEM_VARIANTS.COMPACT}
+                    />
                   ))}
                 </div>
               </div>
@@ -266,7 +261,9 @@ function Month() {
           <span className={styles.todayHighlighTitle}>Tiêu điểm: hôm nay</span>
           <div className={styles.taskListCard}>
             {taskListOfDay.map((item) => {
-              return <TaskItem task={item} variant="list" />;
+              return (
+                <TaskItem task={item} variant={TASK_ITEM_VARIANTS.DEFAULT} />
+              );
             })}
           </div>
         </div>

@@ -1,0 +1,221 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(93, 93, 93, 0.6);
+
+  z-index: 9999;
+}
+.wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  width: 350px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper .header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+}
+.wrapper .header button {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--secondary-text-color);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.wrapper .header button:hover {
+  background-color: rgb(250, 250, 250);
+  box-shadow:
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.wrapper .header .headerTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+.wrapper .content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  padding: 20px;
+  border-bottom: var(--border);
+  border-top: var(--border);
+}
+/* task name */
+.wrapper .content .taskName {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 5px 0px;
+  gap: 5px;
+}
+.wrapper .content .taskName label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(39, 39, 254);
+}
+.wrapper .content .taskName input {
+  font-weight: 600;
+  font-size: 17px;
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+/* subject */
+.wrapper .content .group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.group label {
+  font-size: 13px;
+  color: var(--secondary-text-color);
+  font-size: 500;
+}
+.group label svg {
+  margin-right: 5px;
+}
+.content .group .subjectName {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex: 1;
+}
+.group .subjectName svg {
+  margin-right: 3px;
+  color: rgb(0, 38, 59);
+}
+.group .subjectName select {
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 8px;
+  border: var(--border);
+  flex: 1;
+  padding: 10px 10px;
+}
+/* deadline */
+.content .group .deadline {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.group .deadline svg {
+  margin-right: 3px;
+  color: rgb(210, 0, 0);
+}
+.group .deadline input {
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 8px;
+  border: var(--border);
+  flex: 1;
+  padding: 10px 10px;
+}
+
+.wrapper .content .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.wrapper .content .grid .group {
+  display: flex;
+  flex-direction: column;
+}
+/*  priority */
+.group .priority {
+  display: flex;
+  gap: 5px;
+}
+.group .priority button {
+  display: flex;
+  gap: 5px;
+  background-color: rgb(228, 228, 228);
+  padding: 5px;
+  font-size: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.group .priority button:hover {
+  box-shadow:
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+/* status */
+
+.group .status {
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 8px;
+  border: var(--border);
+}
+/* description */
+.wrapper .content .description {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.wrapper .content .description .descriptionTitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+.wrapper .content .description .descriptionTitle svg {
+  margin-right: 5px;
+}
+.wrapper .content .description .descriptionContent {
+  font-size: 14px;
+  border: var(--border);
+  background-color: var(--surface-light);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: justify;
+  outline: none;
+  min-height: 150px;
+  font-family: inherit;
+}
+.footer {
+  margin-left: auto;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 600px) {
+  .wrapper {
+    width: 280px;
+  }
+  .wrapper .content .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .wrapper .content .taskName input {
+    font-size: 15px;
+  }
+  .group .subjectName select {
+    padding: 5px 10px;
+  }
+  .group .deadline input {
+    padding: 5px 10px;
+  }
+}

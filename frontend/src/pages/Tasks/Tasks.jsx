@@ -16,6 +16,7 @@ import { faAlarmClock, faCalendar } from "@fortawesome/free-regular-svg-icons";
 import TaskItem from "../../components/Tasks/TaskItem/TaskItem";
 import { PRIORITIES } from "../../constants/priorities";
 import { use, useEffect, useState } from "react";
+import { TASK_ITEM_VARIANTS } from "../../constants/taskItemVariants";
 const tasks = [
   {
     id: 1,
@@ -334,7 +335,13 @@ function Tasks() {
           </div>
           <div className={styles.taskList}>
             {currentTasks.map((item) => {
-              return <TaskItem key={item.id} task={item} />;
+              return (
+                <TaskItem
+                  key={item.id}
+                  task={item}
+                  variant={TASK_ITEM_VARIANTS.DETAILED}
+                />
+              );
             })}
           </div>
         </div>
@@ -346,7 +353,13 @@ function Tasks() {
           </div>
           <div className={styles.taskList}>
             {upcomingTask.map((item) => {
-              return <TaskItem key={item.id} task={item} />;
+              return (
+                <TaskItem
+                  key={item.id}
+                  task={item}
+                  variant={TASK_ITEM_VARIANTS.DETAILED}
+                />
+              );
             })}
           </div>
         </div>
@@ -358,7 +371,13 @@ function Tasks() {
           </div>
           <div className={styles.taskList}>
             {completedTask.map((item) => {
-              return <TaskItem key={item.id} task={item} />;
+              return (
+                <TaskItem
+                  key={item.id}
+                  task={item}
+                  variant={TASK_ITEM_VARIANTS.DETAILED}
+                />
+              );
             })}
           </div>
         </div>
