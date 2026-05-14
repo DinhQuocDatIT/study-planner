@@ -14,6 +14,7 @@ import Button from "../../components/ui/Button/Button";
 import FilterDropdown from "../../components/ui/FilterDropdown/FilterDropdown";
 import { SESSION_STATUS } from "../../constants/sessions";
 import DateFormatter from "../../utils/DateFormatter";
+import { useState } from "react";
 const stats = [
   {
     title: "Tổng hợp thời gian tập trung",
@@ -169,6 +170,14 @@ const sessions = [
   },
 ];
 function StudySessionManager() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const currentItems = sessions.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(sessions.length / itemsPerPage);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -218,7 +227,7 @@ function StudySessionManager() {
           </div>
         </div>
         <div className={styles.sessionListContent}>
-          {sessions.map((item) => {
+          {currentItems.map((item) => {
             const status = SESSION_STATUS.find((s) => s.val == item.status);
             return (
               <div key={item.id} className={styles.session}>
@@ -243,6 +252,22 @@ function StudySessionManager() {
                   {status.label}
                 </span>
               </div>
+            );
+          })}
+        </div>
+        <div className={styles.sessionsFilter}>
+          {Array.from({ length: totalPages }, (_, i) => {
+            return (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                style={{
+                  backgroundColor: `${currentPage === i + 1 ? "#000000" : "#f9fafb"}`,
+                  color: `${currentPage === i + 1 ? "white" : "black"}`,
+                }}
+              >
+                {i + 1}
+              </button>
             );
           })}
         </div>

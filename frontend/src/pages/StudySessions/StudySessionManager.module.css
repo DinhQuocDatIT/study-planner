@@ -143,6 +143,21 @@
   padding: 2px 8px;
   border-radius: 12px;
 }
+.sessionsFilter {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.sessionsFilter button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: var(--border);
+  background-color: var(--surface-light);
+  cursor: pointer;
+}
+.sessionsFilter button.active {
+  background-color: var(--primary-color);
+}
 @media (max-width: 600px) {
   .statsGird {
     grid-template-columns: repeat(1, 1fr);

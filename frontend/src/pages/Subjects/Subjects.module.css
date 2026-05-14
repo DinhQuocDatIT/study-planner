@@ -42,6 +42,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(248, 248, 248);
+  text-decoration: none;
 }
 .cardsubject.addsubject svg {
   color: var(--secondary-text-color);
@@ -90,6 +91,19 @@
   color: rgb(54, 54, 54);
   width: fit-content;
   text-transform: uppercase;
+}
+
+.subjectsFilter {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.subjectsFilter button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: var(--border);
+  background-color: var(--surface-light);
+  cursor: pointer;
 }
 /* ===== TABLET ===== */
 @media (max-width: 992px) {
