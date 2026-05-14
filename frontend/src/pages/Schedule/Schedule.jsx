@@ -3,6 +3,8 @@ import styles from "./Schedule.module.css";
 import Day from "./Day/Day";
 import Week from "./Week/Week";
 import Month from "./Month/Month";
+import DateFormatter from "../../utils/DateFormatter";
+import dayjs from "dayjs";
 
 const timeUnitOptions = [
   { value: "day", label: "Ngày" },
@@ -22,11 +24,7 @@ function Schedule() {
       <div className={styles.header}>
         <div className={styles.header}>
           <div className={styles.title}>
-            <h2>Môn học học thuật</h2>
-            <p className={styles.subtitle}>
-              Quản lý chương trình giảng dạy và theo dõi tiến độ của bạn qua các
-              lĩnh vực trọng tâm trong học kỳ hiện tại.
-            </p>
+            <h2>{DateFormatter.fullDate(dayjs())}</h2>
           </div>
           <div className={styles.actions}>
             <div>

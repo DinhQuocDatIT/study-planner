@@ -58,7 +58,8 @@
   gap: 5px;
 }
 .calendarBoard .gird .dayCell.dayCellInMonth.dayCellToday {
-  border: 1px solid var(--primary-color);
+  border: 1px solid #facc15;
+  background-color: #fffef4;
 }
 .calendarBoard .gird .dayCell .taskList {
   display: flex;
@@ -90,11 +91,12 @@
 }
 
 .todayHighligh {
+  width: 100%;
   margin-top: var(--spacing-m);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-m);
+  padding: 10px;
   gap: 20px;
   width: 100%;
   box-shadow:
@@ -126,7 +128,22 @@
   border-radius: 20px; /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
 }
-
+.taskListCard .notFound {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--secondary-text-color);
+  gap: 10px;
+}
+.taskListCard .notFound svg {
+  width: 50px;
+  height: 50px;
+}
+.taskListCard .notFound span {
+  font-size: 14px;
+  font-weight: 500;
+}
 @media (max-width: 992px) {
   .wrapper {
     display: flex;
@@ -135,6 +152,9 @@
   }
   .calendarBoard .grid .dayCell {
     min-height: 80px;
+  }
+  .calendarSidebar {
+    width: 100%;
   }
 }
 /* ===== MOBILE ===== */

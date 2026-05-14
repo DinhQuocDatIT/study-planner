@@ -7,9 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
+  faFolderOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import TaskItem from "../../../components/Tasks/TaskItem/TaskItem";
 import { TASK_ITEM_VARIANTS } from "../../../constants/taskItemVariants";
+import { faFaceDizzy } from "@fortawesome/free-regular-svg-icons";
+import DateFormatter from "../../../utils/DateFormatter";
 const tasks = [
   {
     id: 1,
@@ -46,7 +49,7 @@ const tasks = [
     taskName: "Làm bài tập tích phân",
     priority: "high",
     status: "todo",
-    deadline: "2026-05-12T08:00:00",
+    deadline: "2026-05-13T08:00:00",
 
     subject: {
       id: 3,
@@ -253,18 +256,25 @@ function Month() {
             <FontAwesomeIcon icon={faChevronRight} />
           </Button>
           <div className={styles.currentDate}>
-            {dayObj.format("MMM DD YYYY")}
+            {DateFormatter.formatDate(dayObj)}
           </div>
         </div>
 
         <div className={styles.todayHighligh}>
           <span className={styles.todayHighlighTitle}>Tiêu điểm: hôm nay</span>
           <div className={styles.taskListCard}>
-            {taskListOfDay.map((item) => {
-              return (
-                <TaskItem task={item} variant={TASK_ITEM_VARIANTS.DEFAULT} />
-              );
-            })}
+            {taskListOfDay.length > 0 ? (
+              taskListOfDay.map((item) => {
+                return (
+                  <TaskItem task={item} variant={TASK_ITEM_VARIANTS.DEFAULT} />
+                );
+              })
+            ) : (
+              <div className={styles.notFound}>
+                <FontAwesomeIcon icon={faFaceDizzy} />
+                <span>Không có nhiệm vụ trong ngày</span>
+              </div>
+            )}
           </div>
         </div>
       </div>

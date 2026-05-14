@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import { TASK_ITEM_VARIANTS } from "../../../constants/taskItemVariants";
 import { useState } from "react";
 import TaskDetail from "../TaskDetail/TaskDetail";
+import DateFormatter from "../../../utils/DateFormatter";
 function TaskItem({ task, variant = TASK_ITEM_VARIANTS.DEFAULT }) {
   const priority = PRIORITIES.find((p) => p.val === task.priority);
   const formattedDeadline = dayjs(task.deadline).format("MMM DD YYYY");
@@ -71,7 +72,7 @@ function TaskItem({ task, variant = TASK_ITEM_VARIANTS.DEFAULT }) {
                   }
                 />
 
-                {formattedDeadline}
+                {DateFormatter.formatDeadline(task.deadline)}
               </span>
             </div>
           </div>
@@ -90,7 +91,9 @@ function TaskItem({ task, variant = TASK_ITEM_VARIANTS.DEFAULT }) {
           <div className={styles.taskContent} onClick={handleShow}>
             <span className={styles.taskName}>{task.taskName}</span>
 
-            <span className={styles.taskDeadline}>{formattedDeadline}</span>
+            <span className={styles.taskDeadline}>
+              {DateFormatter.formatDate(task.deadline)}
+            </span>
           </div>
         </div>
       );

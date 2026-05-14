@@ -13,6 +13,7 @@ import styles from "./StudySessionManager.module.css";
 import Button from "../../components/ui/Button/Button";
 import FilterDropdown from "../../components/ui/FilterDropdown/FilterDropdown";
 import { SESSION_STATUS } from "../../constants/sessions";
+import DateFormatter from "../../utils/DateFormatter";
 const stats = [
   {
     title: "Tổng hợp thời gian tập trung",
@@ -228,7 +229,9 @@ function StudySessionManager() {
                   ></div>
                   {item.subject.name}
                 </span>
-                <span className={styles.startTime}>{item.startTime}</span>
+                <span className={styles.startTime}>
+                  {DateFormatter.formatDate(item.startTime)}
+                </span>
                 <span className={styles.duration}>{item.duration / 60}</span>
                 <span
                   className={styles.status}

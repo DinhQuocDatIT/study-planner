@@ -8,17 +8,12 @@
 .header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  
   gap: var(--spacing-m);
   align-items: center;
-  justify-content: space-between;
+ 
 }
-.header .title {
-  flex: 1;
-}
-.header .actions {
-  flex: 1;
-}
+
 .header .actions div {
   display: flex;
   width: fit-content;
