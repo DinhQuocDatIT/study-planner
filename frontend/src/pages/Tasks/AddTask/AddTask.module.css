@@ -14,6 +14,7 @@
 .header a {
   display: flex;
   align-items: center;
+  width: fit-content;
   gap: 7px;
   font-size: 13px;
   color: var(--secondary-text-color);
@@ -142,13 +143,26 @@ form .description textarea {
   gap: 10px;
 }
 @media (max-width: 992px) {
- .formGrid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 10px;
-}
+  .formGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
 }
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
- 
+  .formGrid .formGroup input {
+    outline: none;
+    border: var(
+      --border
+    ); /* Thêm viền hoặc background để mobile không nuốt ô */
+    background-color: var(--surface-light, #f9f9f9);
+    padding: 8px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px; /* Bo góc nhẹ cho đồng bộ */
+    flex: 1; /* Để ô tự động kéo dài ra lấp đầy khoảng trống */
+    min-height: 40px; /* Chiều cao tối thiểu chuẩn cho ngón tay bấm trên mobile */
+  }
 }

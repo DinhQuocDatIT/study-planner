@@ -89,7 +89,7 @@
 .group label {
   font-size: 13px;
   color: var(--secondary-text-color);
-  font-size: 500;
+  font-weight: 500;
 }
 .group label svg {
   margin-right: 5px;

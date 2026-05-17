@@ -93,7 +93,7 @@ function TaskDetail({ task, onClose }) {
       description: task.description,
     });
   }, [task]);
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     /// call api
   };
