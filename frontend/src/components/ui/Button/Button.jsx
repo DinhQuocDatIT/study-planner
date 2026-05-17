@@ -18,7 +18,7 @@ function Button({
     <>
       {icon && <FontAwesomeIcon icon={icon} className={styles.icon} />}
       {leftIcon && <FontAwesomeIcon icon={leftIcon} className={styles.icon} />}
-      <span>{children}</span>
+      {children}
       {rightIcon && (
         <FontAwesomeIcon icon={rightIcon} className={styles.icon} />
       )}

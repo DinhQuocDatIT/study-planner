@@ -15,6 +15,7 @@ import FilterDropdown from "../../components/ui/FilterDropdown/FilterDropdown";
 import { SESSION_STATUS } from "../../constants/sessions";
 import DateFormatter from "../../utils/DateFormatter";
 import { useState } from "react";
+import SessionsFilter from "../../components/Sessions/SessionsFilter/SessionsFilter";
 const stats = [
   {
     title: "Tổng hợp thời gian tập trung",
@@ -219,11 +220,7 @@ function StudySessionManager() {
         <div className={styles.sessionListHeader}>
           <span>Lịch sử phiên học </span>
           <div className={styles.filters}>
-            <FilterDropdown
-              label={"Lọc"}
-              rightIcon={faAngleDoubleDown}
-              options={[]}
-            />
+            <SessionsFilter />
           </div>
         </div>
         <div className={styles.sessionListContent}>

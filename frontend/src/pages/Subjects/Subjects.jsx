@@ -5,6 +5,7 @@ import { faPlus, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons/faClock";
 import { NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
+import SubjectFilter from "../../components/Subjects/SubjectFilter/SubjectFilter.jsx";
 const subjects = [
   {
     id: 1,
@@ -218,9 +219,7 @@ function Subjects() {
           </p>
         </div>
         <div className={styles.actions}>
-          <Button icon={faSliders} variant="outline">
-            Lọc
-          </Button>
+          <SubjectFilter />
           <Button icon={faPlus} variant="primary" to={"/subjects/add"}>
             Thêm môn học
           </Button>

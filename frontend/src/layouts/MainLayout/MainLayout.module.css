@@ -62,6 +62,7 @@
     height: 128px;
   }
   .content {
+    height: calc(100vh - 128px);
     margin-top: 128px;
   }
 }

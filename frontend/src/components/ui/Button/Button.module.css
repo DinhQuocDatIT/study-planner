@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 8px;
   padding: 8px 16px;
-  border-radius: 8px; /* Bo góc lớn */
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -13,7 +13,7 @@
   text-decoration: none;
 }
 .wrapper:hover {
-  background-color: var(--hover-color);
+  background-color: rgb(227, 227, 227);
 }
 .primary {
   background-color: var(--primary-color);
@@ -26,6 +26,9 @@
   border: var(--border);
   color: var(--primary-color);
   background-color: var(--bg-color);
+}
+.outline :hover {
+  background-color: #f9fafb;
 }
 .wrapper.primary svg {
   font-size: 13px;
