@@ -10,6 +10,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  white-space: nowrap;
   text-decoration: none;
 }
 .wrapper:hover {
@@ -26,6 +27,7 @@
   border: var(--border);
   color: var(--primary-color);
   background-color: var(--bg-color);
+  white-space: nowrap;
 }
 .outline :hover {
   background-color: #f9fafb;

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAccusoft } from "@fortawesome/free-brands-svg-icons";
 import styles from "./Login.module.css";
@@ -6,12 +6,14 @@ import Button from "../../../components/ui/Button/Button";
 import { Google } from "../../../assets";
 import { useState } from "react";
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email);
     console.log(password);
+    navigate("/");
   };
 
   return (

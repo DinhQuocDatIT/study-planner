@@ -5,7 +5,7 @@ import styles from "./Sidebar.module.css";
 import NavItem from "../../../components/NavItem/NavItem";
 import { IDNAVITEMS, navItems } from "../../../constants/navigation";
 import { useState } from "react";
-
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 function Sidebar() {
   const location = useLocation();
 
@@ -29,7 +29,13 @@ function Sidebar() {
           />
         ))}
       </div>
-      <div className={styles.footer}>{/* Thêm phiên sau */}</div>
+      <div className={styles.footer}>
+        <NavItem
+          path={"/login"}
+          label={"Đăng xuất"}
+          icon={faArrowRightFromBracket}
+        />
+      </div>
     </div>
   );
 }

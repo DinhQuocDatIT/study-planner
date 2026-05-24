@@ -19,7 +19,7 @@ function Header({ isOpenSidebar, toggleSidebar }) {
         />
         <div className={styles.search}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-          <input type="text" placeholder="Tìm kiếm môn học..." />
+          <input type="text" placeholder="Tìm kiếm ..." />
         </div>
       </div>
       <div className={styles.right}>

@@ -1,6 +1,9 @@
 .wrapper {
   position: relative;
 }
+.wrapper button {
+  white-space: nowrap;
+}
 .wrapper .showbtn {
   padding: 10px;
   border: var(--border);

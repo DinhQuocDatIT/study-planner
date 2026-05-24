@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { faAccusoft } from "@fortawesome/free-brands-svg-icons";
 import styles from "./Register.module.css";
 import Button from "../../../components/ui/Button/Button";
 import { Google } from "../../../assets";
 import { useState } from "react";
 function Register() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +19,7 @@ function Register() {
       setMessageError("Mật khẩu không khớp");
       return;
     }
+    navigate("/login");
   };
 
   return (
