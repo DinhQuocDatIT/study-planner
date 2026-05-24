@@ -1,7 +1,12 @@
 import styles from "./Subjects.module.css";
 import Button from "../../components/ui/Button/Button.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faSliders } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPenToSquare,
+  faPlus,
+  faSliders,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons/faClock";
 import { NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
@@ -230,13 +235,22 @@ function Subjects() {
           {currentItems.map((item) => {
             return (
               <div className={styles.cardsubject} key={item.id}>
-                <div className={styles.namesubject}>
-                  <span
-                    className={styles.dot}
-                    style={{ backgroundColor: item.color }}
-                  ></span>
-                  <span className={styles.tilte}>{item.name}</span>
+                <div className={styles.cardsubjectHeader}>
+                  <div className={styles.namesubject}>
+                    <span
+                      className={styles.dot}
+                      style={{ backgroundColor: item.color }}
+                    ></span>
+                    <span className={styles.tilte}>{item.name}</span>
+                  </div>
+                  <NavLink
+                    to={`/subjects/edit/${item.id}`}
+                    className={styles.editBtn}
+                  >
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  </NavLink>
                 </div>
+
                 <div className={styles.days}>
                   <FontAwesomeIcon icon={faClock} />
                   <span>Thứ {item.daysOfWeek.join(", ")}</span>

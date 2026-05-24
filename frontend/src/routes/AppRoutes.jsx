@@ -10,6 +10,7 @@ import AddTask from "../pages/Tasks/AddTask/AddTask";
 import StudySessionManager from "../pages/StudySessions/StudySessionManager";
 import AddSession from "../pages/StudySessions/AddSession/AddSession";
 import StudySession from "../pages/StudySessions/StudySession/StudySession";
+import UpdateSubject from "../pages/Subjects/UpdateSubject/UpdateSubject";
 
 function AppRoutes() {
   return (
@@ -23,6 +24,7 @@ function AppRoutes() {
 
         <Route path="/subjects" element={<Subjects />} />
         <Route path="/subjects/add" element={<AddSubject />} />
+        <Route path="/subjects/edit/:id" element={<UpdateSubject />} />
 
         <Route path="/study_sessions" element={<StudySessionManager />} />
         <Route path="/study_sessions/add" element={<AddSession />} />

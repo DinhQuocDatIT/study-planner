@@ -61,6 +61,26 @@
 .subjectslist .cardsubject:hover {
   box-shadow: 2px 2px 6px rgb(222, 222, 222);
 }
+.cardsubjectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardsubjectHeader .editBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: var(--secondary-color);
+  transition: all 0.3s ease;
+  padding: 8px 6px;
+  border-radius: 50%;
+}
+.cardsubjectHeader .editBtn:hover {
+  box-shadow:
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 .namesubject {
   display: flex;
   align-items: center;

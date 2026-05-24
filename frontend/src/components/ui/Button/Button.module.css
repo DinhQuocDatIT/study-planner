@@ -32,6 +32,17 @@
 .outline :hover {
   background-color: #f9fafb;
 }
+.danger {
+  border: red;
+  background-color: rgb(255, 242, 242);
+  color: red;
+}
+.danger svg {
+  color: red;
+}
+.danger svg:hover {
+ background-color:rgb(243, 243, 243) ;
+}
 .wrapper.primary svg {
   font-size: 13px;
   color: white;
