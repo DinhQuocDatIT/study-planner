@@ -20,54 +20,103 @@
 .filters {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-m) 0px;
+
+  gap: 20px;
+  padding: 2px 0;
+
   border-bottom: var(--border);
-  gap: var(--spacing-m);
 }
+
+.viewSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.viewSwitcher button {
+  background: transparent;
+  border: none;
+
+  padding: 12px 4px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  cursor: pointer;
+
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+
+  position: relative;
+}
+
+.viewSwitcher button:hover {
+  color: #2563eb;
+}
+
+.viewSwitcher .active {
+  color: #2563eb;
+}
+
+.viewSwitcher .active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -1px;
+
+  height: 2px;
+
+  background: #2563eb;
+}
+
 .leftFilter {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
+
 .leftFilter span {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 15px;
-  color: var(--secondary-text-color);
+  gap: 6px;
 
-  margin-right: 10px;
-}
-.rightFilter {
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.rightFilter span {
+  font-size: 14px;
   color: var(--secondary-text-color);
   font-weight: 500;
 }
 
+.rightFilter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  white-space: nowrap;
+}
+
+.rightFilter span {
+  font-size: 14px;
+  color: var(--secondary-text-color);
+}
+
 .rightFilter button {
-  cursor: pointer;
   border: none;
   background: transparent;
-  font-weight: 600;
-  color: inherit;
-  padding: 0;
-  margin: 0;
+
+  cursor: pointer;
 
   display: flex;
   align-items: center;
   gap: 4px;
-}
 
-.rightFilter button svg {
-  font-size: 11px;
+  font-weight: 600;
 }
 .container {
   display: flex;
@@ -134,14 +183,29 @@
   gap: 10px;
 }
 
-@media (max-width: 600px) {
-  .leftFilter span svg {
-    display: none;
-  }
+@media (max-width: 768px) {
   .header {
     flex-direction: column;
   }
   .filters {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .viewSwitcher {
+    width: 100%;
+  }
+
+  .viewSwitcher button {
+    flex: 1;
+  }
+
+  .leftFilter {
+    width: 100%;
+  }
+
+  .rightFilter {
+    width: 100%;
+    justify-content: flex-end;
   }
 }

@@ -17,6 +17,9 @@ import TaskItem from "../../components/Tasks/TaskItem/TaskItem";
 import { PRIORITIES } from "../../constants/priorities";
 import { use, useEffect, useState } from "react";
 import { TASK_ITEM_VARIANTS } from "../../constants/taskItemVariants";
+import TaskBoardView from "../../components/Tasks/TaskBoardView/TaskBoardView";
+import TaskListView from "../../components/Tasks/TaskListView/TaskListView";
+import { faList, faTableColumns } from "@fortawesome/free-solid-svg-icons";
 const tasks = [
   {
     id: 1,
@@ -124,118 +127,13 @@ const tasks = [
     description: "Setup database cho project quản lý thư viện",
   },
 ];
-// const currentTasks = [
-//   {
-//     id: 1,
-//     taskName: "Fix bug API Login",
-//     priority: "high",
-//     status: "in-progress",
-//     deadline: "2026-05-07T23:59:59",
+const VIEW_MODES = {
+  LIST: "list",
+  BOARD: "board",
+};
 
-//     subject: {
-//       id: 1,
-//       name: "Lập trình Java",
-//       color: "#f97316",
-//     },
-
-//     description: "Xử lý lỗi JWT hết hạn không tự refresh",
-//   },
-//   {
-//     id: 2,
-//     taskName: "Thiết kế giao diện Dashboard",
-//     priority: "medium",
-//     status: "in-progress",
-//     deadline: "2026-05-08T18:00:00",
-
-//     subject: {
-//       id: 2,
-//       name: "UI/UX Design",
-//       color: "#3b82f6",
-//     },
-
-//     description: "Hoàn thiện layout thống kê và biểu đồ",
-//   },
-// ];
-// const upcomingTask = [
-//   {
-//     id: 3,
-//     taskName: "Làm bài tập tích phân",
-//     priority: "high",
-//     status: "todo",
-//     deadline: "2026-05-09T08:00:00",
-
-//     subject: {
-//       id: 3,
-//       name: "Toán cao cấp",
-//       color: "#ef4444",
-//     },
-
-//     description: "Giải bài tập chương 3 sách bài tập",
-//   },
-//   {
-//     id: 4,
-//     taskName: "Luyện nghe Part 1",
-//     priority: "medium",
-//     status: "todo",
-//     deadline: "2026-05-10T19:00:00",
-
-//     subject: {
-//       id: 4,
-//       name: "Tiếng Anh chuyên ngành",
-//       color: "#06b6d4",
-//     },
-
-//     description: "Nghe 5 đoạn hội thoại về chủ đề Network",
-//   },
-//   {
-//     id: 5,
-//     taskName: "Vẽ sơ đồ ERD",
-//     priority: "medium",
-//     status: "todo",
-//     deadline: "2026-05-11T10:30:00",
-
-//     subject: {
-//       id: 5,
-//       name: "Cơ sở dữ liệu",
-//       color: "#8b5cf6",
-//     },
-
-//     description: "Thiết kế bảng cho hệ thống quản lý thư viện",
-//   },
-// ];
-// const completedTask = [
-//   {
-//     id: 6,
-//     taskName: "Ôn tập lý thuyết tích phân",
-//     priority: "low",
-//     status: "completed",
-//     deadline: "2026-05-06T14:00:00",
-
-//     subject: {
-//       id: 3,
-//       name: "Toán cao cấp",
-//       color: "#ef4444",
-//     },
-
-//     description: "Xem lại các công thức nguyên hàm cơ bản",
-//   },
-//   {
-//     id: 7,
-//     taskName: "Cài đặt MySQL",
-//     priority: "low",
-//     status: "completed",
-//     deadline: "2026-05-05T09:00:00",
-
-//     subject: {
-//       id: 5,
-//       name: "Cơ sở dữ liệu",
-//       color: "#8b5cf6",
-//     },
-
-//     description: "Setup database cho project quản lý thư viện",
-//   },
-// ];
 function Tasks() {
+  const [viewMode, setViewMode] = useState(VIEW_MODES.LIST);
   const [tasksList, setTaskList] = useState(tasks);
   const [filterPriority, setFilterPriority] = useState("all");
   const [sortOrder, setSortOrder] = useState("asc");
@@ -295,6 +193,23 @@ function Tasks() {
         </div>
       </div>
       <div className={styles.filters}>
+        <div className={styles.viewSwitcher}>
+          <button
+            className={viewMode === VIEW_MODES.LIST ? styles.active : ""}
+            onClick={() => setViewMode(VIEW_MODES.LIST)}
+          >
+            <FontAwesomeIcon icon={faList} />
+            Danh sách
+          </button>
+
+          <button
+            className={viewMode === VIEW_MODES.BOARD ? styles.active : ""}
+            onClick={() => setViewMode(VIEW_MODES.BOARD)}
+          >
+            <FontAwesomeIcon icon={faTableColumns} />
+            Kanban
+          </button>
+        </div>
         <div className={styles.leftFilter}>
           <span>
             <FontAwesomeIcon icon={faSliders} />
@@ -327,60 +242,15 @@ function Tasks() {
         </div>
       </div>
       <div className={styles.container}>
-        <div className={styles.currently}>
-          <div className={styles.currentlyHeader}>
-            <FontAwesomeIcon icon={faAlarmClock} />
-            <span className={styles.title}>Đang thực hiện</span>
-            <span className={styles.count}>{currentTasks.length}</span>
-          </div>
-          <div className={styles.taskList}>
-            {currentTasks.map((item) => {
-              return (
-                <TaskItem
-                  key={item.id}
-                  task={item}
-                  variant={TASK_ITEM_VARIANTS.DETAILED}
-                />
-              );
-            })}
-          </div>
-        </div>
-        <div className={styles.upcoming}>
-          <div className={styles.upcomingHeader}>
-            <FontAwesomeIcon icon={faCalendar} />
-            <span className={styles.title}>Sắp tới</span>
-            <span className={styles.count}>{upcomingTask.length}</span>
-          </div>
-          <div className={styles.taskList}>
-            {upcomingTask.map((item) => {
-              return (
-                <TaskItem
-                  key={item.id}
-                  task={item}
-                  variant={TASK_ITEM_VARIANTS.DETAILED}
-                />
-              );
-            })}
-          </div>
-        </div>
-        <div className={styles.completed}>
-          <div className={styles.completedHeader}>
-            <FontAwesomeIcon icon={faAlarmClock} />
-            <span className={styles.title}>Đang thực hiện</span>
-            <span className={styles.count}>{completedTask.length}</span>
-          </div>
-          <div className={styles.taskList}>
-            {completedTask.map((item) => {
-              return (
-                <TaskItem
-                  key={item.id}
-                  task={item}
-                  variant={TASK_ITEM_VARIANTS.DETAILED}
-                />
-              );
-            })}
-          </div>
-        </div>
+        {viewMode === VIEW_MODES.LIST ? (
+          <TaskListView
+            currentTasks={currentTasks}
+            upcomingTask={upcomingTask}
+            completedTask={completedTask}
+          />
+        ) : (
+          <TaskBoardView tasks={sortedTasks} setTaskList={setTaskList} />
+        )}
       </div>
     </div>
   );
