@@ -77,7 +77,7 @@ const durations = [
   {
     key: "focus",
     label: "Tập trung",
-    duration: 25,
+    duration: 1,
   },
   {
     key: "deep",
@@ -98,7 +98,6 @@ const durations = [
 function AddSession() {
   const [idSubject, setIdSubject] = useState(subjects?.[0].id);
   const [duration, setDuration] = useState(durations?.[0].duration);
-  const [soundEnabled, setSoundEnabled] = useState(true);
 
   const navigate = useNavigate();
   const selectedSubject = subjects.find((s) => s.id === idSubject);
@@ -110,18 +109,11 @@ function AddSession() {
     navigate("/study_sessions/add/study-session", {
       state: {
         id: crypto.randomUUID(),
-
         subject: selectedSubject,
-
         duration: duration * 60,
-
         elapsed: 0,
-
         startTime: now,
-
         status: "running",
-
-        soundEnabled,
       },
     });
   };
@@ -171,23 +163,7 @@ function AddSession() {
             })}
           </div>
         </div>
-        <div>
-          <div className={styles.settingItem}>
-            <label className={styles.settingLabel}>
-              <FontAwesomeIcon icon={faVolume} />
-              Âm thanh thông báo
-            </label>
-            <label className={styles.switch}>
-              <input
-                checked={soundEnabled}
-                onChange={(e) => setSoundEnabled(e.target.checked)}
-                type="checkbox"
-              />
 
-              <span className={styles.slider}></span>
-            </label>
-          </div>
-        </div>
         <Button type="submit" leftIcon={faCaretRight}>
           Bắt đâu phiên học
         </Button>

@@ -7,21 +7,30 @@ import { SESSION_STATUS } from "../../../constants/sessions";
 
 function SessionsFilter() {
   const [isOpen, setIsOpen] = useState(false);
-  const [search, setSearch] = useState("");
-  const [status, setStatus] = useState("all");
+  const [filters, setFilters] = useState({
+    search: "",
+    status: "all",
+  });
+
+  const toggleFilter = () => setIsOpen((prev) => !prev);
+
+  const handleChange = (key) => (e) => {
+    setFilters((prev) => ({
+      ...prev,
+      [key]: e.target.value,
+    }));
+  };
 
   const handleReset = () => {
-    setSearch("");
-    setStatus("all");
+    setFilters({ search: "", status: "all" });
   };
+
   return (
     <div className={styles.wrapper}>
-      <button
-        onClick={() => setIsOpen((prev) => !prev)}
-        className={styles.showbtn}
-      >
+      <button onClick={toggleFilter} className={styles.showbtn}>
         <FontAwesomeIcon icon={faFilter} /> Lọc
       </button>
+
       {isOpen && (
         <div className={styles.filter}>
           <div className={styles.content}>
@@ -32,20 +41,16 @@ function SessionsFilter() {
                 <input
                   type="text"
                   placeholder="Tìm kiếm..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  value={filters.search}
+                  onChange={handleChange("search")}
                 />
               </div>
             </div>
 
             <div className={styles.group}>
               <label>Trạng thái</label>
-
-              <select
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-              >
-                <option value={"all"}>Tất cả</option>
+              <select value={filters.status} onChange={handleChange("status")}>
+                <option value="all">Tất cả</option>
                 {SESSION_STATUS.map((item) => (
                   <option key={item.val} value={item.val}>
                     {item.label}
@@ -54,11 +59,11 @@ function SessionsFilter() {
               </select>
             </div>
           </div>
+
           <div className={styles.actions}>
             <Button variant="outline" type="button" onClick={handleReset}>
               Đặt lại
             </Button>
-
           </div>
         </div>
       )}

@@ -1,142 +1,206 @@
-/* COMPACT */
+/* =========================
+   COMPACT
+========================= */
 
 .compactWrapper {
-  border-radius: 3px;
-  padding: 3px 3px;
-  color: black;
   display: flex;
-  gap: 10px;
   align-items: center;
-  transition: all 0.3s ease;
+  gap: 8px;
+
+  padding: 4px 6px;
+  border-radius: 6px;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
+
 .compactWrapper:hover {
-  box-shadow:
-    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: var(--hover-color);
 }
+
 .compactWrapper .dot {
   width: 6px;
   height: 6px;
   min-width: 6px;
-  flex-shrink: 0;
-
   border-radius: 50%;
 }
+
+.compactWrapper .taskName {
+  font-size: 13px;
+  font-weight: 500;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   DETAILED
+========================= */
+
 .detailedWrapper {
   display: flex;
-  gap: 15px;
+  gap: 14px;
+
+  padding: 14px;
+
   border: var(--border);
-  padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
+
+  background: var(--bg-color);
+
   cursor: pointer;
-  background-color: var(--bg-color);
+  transition: all 0.25s ease;
 }
-.detailedWrapper input[type="checkbox"] {
-  transform: scale(1.1);
+
+.detailedWrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
+}
+
+.taskCheckbox {
   cursor: pointer;
   accent-color: gold;
+  transform: scale(1.15);
+  margin-top: 2px;
 }
+
 .taskContent {
+  flex: 1;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .taskHeader {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
 }
+
 .taskHeader .taskName {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.taskHeader .priority {
-  height: 18px;
-  box-sizing: border-box;
-  align-items: baseline;
+
+.priority {
   font-size: 12px;
-  border-radius: 4px;
-  padding: 1px 8px;
   font-weight: 600;
+
+  padding: 3px 8px;
+  border-radius: 6px;
+
+  white-space: nowrap;
 }
+
 .taskDetails {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
-.taskDetails .subjectName {
-  padding: 0px 6px;
-  align-items: baseline;
-  align-items: center;
-  border-radius: 3px;
+
+.subjectName {
   display: flex;
+  align-items: center;
   gap: 6px;
+
   font-size: 12px;
-  color: var(--secondary-text-color);
   font-weight: 500;
+
+  color: var(--secondary-text-color);
 }
-.taskDetails .subjectName .dot {
-  width: 6px;
-  height: 6px;
+
+.subjectName .dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
 }
-.taskDetails .deadline {
-  display: inline-flex;
+
+.deadline {
+  display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+
+  font-size: 12px;
   color: var(--secondary-text-color);
 }
-.taskDetails .deadline svg {
-  width: 13px;
-  height: 13px;
+
+.deadline svg {
+  font-size: 12px;
 }
 
-/* List */
+/* =========================
+   DEFAULT
+========================= */
+
 .defaultWrapper {
   display: flex;
-  background-color: var(--surface-light);
-  border: var(--border);
-  padding: 8px;
-  border-radius: 8px;
   align-items: center;
-  gap: 15px;
-  cursor: pointer;
-}
-.defaultWrapper .taskDot {
-  width: 4px;
-  min-width: 4px;
-  flex-shrink: 0;
+  gap: 12px;
 
+  padding: 10px;
+
+  border: var(--border);
   border-radius: 8px;
-  background-color: rgb(0, 0, 0);
-  height: 30px;
-}
-.defaultWrapper input[type="checkbox"] {
-  transform: scale(1.1);
+
+  background: var(--surface-light);
+
   cursor: pointer;
-  accent-color: gold;
+  transition: all 0.25s ease;
 }
+
+.defaultWrapper:hover {
+  background-color: var(--hover-color);
+}
+
 .defaultWrapper .taskContent {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  flex: 1;
+  gap: 4px;
 }
-.defaultWrapper .taskContent .taskName {
-  font-size: 13px;
+
+.defaultWrapper .taskName {
+  font-size: 14px;
   font-weight: 500;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.defaultWrapper .taskContent .taskDeadline {
-  font-size: 11px;
-  font-weight: 500;
+
+.defaultWrapper .taskDeadline {
+  font-size: 12px;
   color: var(--secondary-text-color);
 }
-/* ===== MOBILE ===== */
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 600px) {
-  .compactWrapper {
-    padding: 0px;
-  }
   .compactWrapper .taskName {
     display: none;
+  }
+
+  .detailedWrapper {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .taskHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .priority {
+    align-self: flex-start;
+  }
+
+  .taskDetails {
+    flex-direction: column;
+    gap: 6px;
   }
 }

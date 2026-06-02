@@ -5,41 +5,37 @@ import {
   faCalendarCheck,
 } from "@fortawesome/free-regular-svg-icons";
 import { PRIORITIES } from "../../../constants/priorities";
-import dayjs from "dayjs";
 import { TASK_ITEM_VARIANTS } from "../../../constants/taskItemVariants";
 import { useState } from "react";
 import TaskDetail from "../TaskDetail/TaskDetail";
 import DateFormatter from "../../../utils/DateFormatter";
+
 function TaskItem({ task, variant = TASK_ITEM_VARIANTS.DEFAULT }) {
   const priority = PRIORITIES.find((p) => p.val === task.priority);
-  const formattedDeadline = dayjs(task.deadline).format("MMM DD YYYY");
   const [isShow, setIsShow] = useState(false);
 
   const handleShow = () => {
-    setIsShow((prev) => !prev);
+    setIsShow(true);
   };
-  switch (variant) {
-    case TASK_ITEM_VARIANTS.COMPACT:
-      return (
+
+  return (
+    <>
+      {isShow && <TaskDetail task={task} onClose={() => setIsShow(false)} />}
+
+      {variant === TASK_ITEM_VARIANTS.COMPACT && (
         <div className={styles.compactWrapper} onClick={handleShow}>
-          {isShow && (
-            <TaskDetail task={task} onClose={() => setIsShow(false)} />
-          )}
           <div
             className={styles.dot}
-            style={{ backgroundColor: `${task.subject.color}` }}
-          ></div>
+            style={{ backgroundColor: task.subject.color }}
+          />
           <span className={styles.taskName}>{task.taskName}</span>
         </div>
-      );
+      )}
 
-    case TASK_ITEM_VARIANTS.DETAILED:
-      return (
+      {variant === TASK_ITEM_VARIANTS.DETAILED && (
         <div className={styles.detailedWrapper}>
-          {isShow && (
-            <TaskDetail task={task} onClose={() => setIsShow(false)} />
-          )}
           <input type="checkbox" className={styles.taskCheckbox} />
+
           <div className={styles.taskContent} onClick={handleShow}>
             <div className={styles.taskHeader}>
               <span className={styles.taskName}>{task.taskName}</span>
@@ -59,8 +55,10 @@ function TaskItem({ task, variant = TASK_ITEM_VARIANTS.DEFAULT }) {
               <span className={styles.subjectName}>
                 <div
                   className={styles.dot}
-                  style={{ backgroundColor: task.subject.color }}
-                ></div>
+                  style={{
+                    backgroundColor: task.subject.color,
+                  }}
+                />
 
                 {task.subject.name}
               </span>
@@ -77,15 +75,10 @@ function TaskItem({ task, variant = TASK_ITEM_VARIANTS.DEFAULT }) {
             </div>
           </div>
         </div>
-      );
+      )}
 
-    case TASK_ITEM_VARIANTS.DEFAULT:
-    default:
-      return (
+      {variant === TASK_ITEM_VARIANTS.DEFAULT && (
         <div className={styles.defaultWrapper}>
-          {isShow && (
-            <TaskDetail task={task} onClose={() => setIsShow(false)} />
-          )}
           <input type="checkbox" className={styles.taskCheckbox} />
 
           <div className={styles.taskContent} onClick={handleShow}>
@@ -96,7 +89,9 @@ function TaskItem({ task, variant = TASK_ITEM_VARIANTS.DEFAULT }) {
             </span>
           </div>
         </div>
-      );
-  }
+      )}
+    </>
+  );
 }
+
 export default TaskItem;

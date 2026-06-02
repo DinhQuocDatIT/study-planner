@@ -16,6 +16,7 @@ import { SESSION_STATUS } from "../../constants/sessions";
 import DateFormatter from "../../utils/DateFormatter";
 import { useState } from "react";
 import SessionsFilter from "../../components/Sessions/SessionsFilter/SessionsFilter";
+import SessionItem from "../../components/Sessions/SessionItem/SessionItem";
 const stats = [
   {
     title: "Tổng hợp thời gian tập trung",
@@ -224,33 +225,9 @@ function StudySessionManager() {
           </div>
         </div>
         <div className={styles.sessionListContent}>
-          {currentItems.map((item) => {
-            const status = SESSION_STATUS.find((s) => s.val == item.status);
-            return (
-              <div key={item.id} className={styles.session}>
-                <span className={styles.subjectName}>
-                  <div
-                    className={styles.dot}
-                    style={{ backgroundColor: item.subject.color }}
-                  ></div>
-                  {item.subject.name}
-                </span>
-                <span className={styles.startTime}>
-                  {DateFormatter.formatDate(item.startTime)}
-                </span>
-                <span className={styles.duration}>{item.duration / 60}</span>
-                <span
-                  className={styles.status}
-                  style={{
-                    color: status.color,
-                    backgroundColor: `${status.color}20`,
-                  }}
-                >
-                  {status.label}
-                </span>
-              </div>
-            );
-          })}
+          {currentItems.map((item) => (
+            <SessionItem key={item.id} session={item} />
+          ))}
         </div>
         <div className={styles.sessionsFilter}>
           {Array.from({ length: totalPages }, (_, i) => {

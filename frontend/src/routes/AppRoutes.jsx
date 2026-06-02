@@ -32,6 +32,7 @@ function AppRoutes() {
           path="/study_sessions/add/study-session"
           element={<StudySession />}
         />
+        <Route path="/study_sessions/:id" element={<StudySession />} />
       </Route>
 
       <Route path="/login" element={<Login />} />
