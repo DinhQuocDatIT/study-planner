@@ -243,10 +243,17 @@ function TaskDetail({ task, onClose }) {
           </div>
         </div>
         <div className={styles.footer}>
-          <Button variant="outline" type="button" onClick={handleClose}>
-            Hủy
+          <Button variant="danger" type="button">
+            Xóa
           </Button>
-          <Button type="submit">Lưu thay đỗi</Button>
+
+          <div className={styles.footerActions}>
+            <Button variant="outline" type="button" onClick={handleClose}>
+              Hủy
+            </Button>
+
+            <Button type="submit">Lưu thay đổi</Button>
+          </div>
         </div>
       </form>
     </div>

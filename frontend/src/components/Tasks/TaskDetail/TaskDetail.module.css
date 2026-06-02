@@ -196,11 +196,16 @@
   font-family: inherit;
 }
 .footer {
-  margin-left: auto;
   padding: 15px 10px;
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: space-between;
+}
+.footerActions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 @media (max-width: 600px) {
   .wrapper {

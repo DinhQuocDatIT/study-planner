@@ -3,62 +3,97 @@
   flex-direction: column;
   gap: 30px;
 }
-.completed,
-.upcoming,
-.currently {
+
+.highPriority,
+.mediumPriority,
+.lowPriority {
   margin-bottom: var(--spacing-m);
 }
-.completed .completedHeader,
-.upcoming .upcomingHeader,
-.currently .currentlyHeader {
+
+.sectionHeader {
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 15px;
 }
-.completed .completedHeader .title,
-.upcoming .upcomingHeader .title,
-.currently .currentlyHeader .title {
+
+.title {
   font-size: 18px;
   font-weight: 600;
+  color: var(--primary-text-color);
 }
-.completed .completedHeader .count,
-.upcoming .upcomingHeader .count,
-.currently .currentlyHeader .count {
-  font-size: 14px;
+
+.count {
+  min-width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
   font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 50%;
+
+  border-radius: 999px;
   color: var(--secondary-text-color);
+  background-color: var(--hover-bg-color);
 }
-.currently .currentlyHeader svg {
-  padding: 8px;
-  color: rgb(0, 114, 244);
-  background-color: rgba(0, 114, 244, 0.05);
-  border-radius: 8px;
-  width: 16px;
-  height: 16px;
-}
-.upcoming .upcomingHeader svg {
-  padding: 8px;
 
-  color: rgb(199, 99, 0);
-  background-color: rgba(199, 99, 0, 0.05);
-  border-radius: 8px;
-  width: 16px;
-  height: 16px;
-}
-.completed .completedHeader svg {
+.sectionHeader svg {
+  width: 18px;
+  height: 18px;
   padding: 8px;
-
-  color: rgb(0, 199, 113);
-  background-color: rgba(0, 199, 113, 0.05);
-  border-radius: 8px;
-  width: 16px;
-  height: 16px;
+  border-radius: 10px;
 }
+
+/* High Priority */
+.highPriority .sectionHeader svg {
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Medium Priority */
+.mediumPriority .sectionHeader svg {
+  color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* Low Priority */
+.lowPriority .sectionHeader svg {
+  color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
 .taskList {
   margin-top: var(--spacing-m);
+
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    gap: 24px;
+  }
+
+  .sectionHeader {
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .count {
+    min-width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .sectionHeader svg {
+    width: 16px;
+    height: 16px;
+    padding: 6px;
+  }
 }

@@ -33,7 +33,7 @@
   background-color: #f9fafb;
 }
 .danger {
-  border: red;
+  border: 1px rgb(207, 153, 153) solid;
   background-color: rgb(255, 242, 242);
   color: red;
 }
@@ -41,7 +41,7 @@
   color: red;
 }
 .danger svg:hover {
- background-color:rgb(243, 243, 243) ;
+  background-color: rgb(243, 243, 243);
 }
 .wrapper.primary svg {
   font-size: 13px;

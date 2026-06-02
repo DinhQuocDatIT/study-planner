@@ -160,6 +160,18 @@ function Tasks() {
   const completedTask = sortedTasks.filter(
     (task) => task.status === "completed",
   );
+
+  const highPriorityTasks = sortedTasks.filter(
+    (task) => task.priority === "high",
+  );
+
+  const mediumPriorityTasks = sortedTasks.filter(
+    (task) => task.priority === "medium",
+  );
+
+  const lowPriorityTasks = sortedTasks.filter(
+    (task) => task.priority === "low",
+  );
   const exportPDF = () => {
     const doc = new jsPDF();
 
@@ -210,43 +222,44 @@ function Tasks() {
             Kanban
           </button>
         </div>
-        <div className={styles.leftFilter}>
-          <span>
-            <FontAwesomeIcon icon={faSliders} />
-            Bộ lọc:
-          </span>
-          <FilterDropdown
-            label={"Môn học"}
-            rightIcon={faAngleDown}
-            options={PRIORITIES}
-          />
-          <FilterDropdown
-            label={"Độ ưu tiên"}
-            rightIcon={faAngleDown}
-            options={PRIORITIES}
-            onChange={setFilterPriority}
-          />
-        </div>
-        <div className={styles.rightFilter}>
-          <span>Sắp xếp theo:</span>
-          <button
-            onClick={() =>
-              setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
-            }
-          >
-            Hạn chót
-            <FontAwesomeIcon
-              icon={sortOrder === "asc" ? faArrowDown : faArrowUp}
+
+        <div className={styles.filterControls}>
+          <div className={styles.leftFilter}>
+            <span>
+              <FontAwesomeIcon icon={faSliders} />
+              Bộ lọc
+            </span>
+
+            <FilterDropdown
+              label="Độ ưu tiên"
+              rightIcon={faAngleDown}
+              options={PRIORITIES}
+              onChange={setFilterPriority}
             />
-          </button>
+          </div>
+
+          <div className={styles.rightFilter}>
+            <span>Sắp xếp:</span>
+
+            <button
+              onClick={() =>
+                setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
+              }
+            >
+              Hạn chót
+              <FontAwesomeIcon
+                icon={sortOrder === "asc" ? faArrowDown : faArrowUp}
+              />
+            </button>
+          </div>
         </div>
       </div>
       <div className={styles.container}>
         {viewMode === VIEW_MODES.LIST ? (
           <TaskListView
-            currentTasks={currentTasks}
-            upcomingTask={upcomingTask}
-            completedTask={completedTask}
+            highPriorityTasks={highPriorityTasks}
+            mediumPriorityTasks={mediumPriorityTasks}
+            lowPriorityTasks={lowPriorityTasks}
           />
         ) : (
           <TaskBoardView tasks={sortedTasks} setTaskList={setTaskList} />
